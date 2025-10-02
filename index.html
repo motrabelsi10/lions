@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lions Club International - Formation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .team-photo {
+            width: 400px;
+            /* largeur fixe */
+            height: auto;
+            /* conserve les proportions */
+            object-fit: cover;
+            /* ajuste l'image si besoin */
+            border-radius: 5px;
+            /* optionnel : coins arrondis */
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #764ba2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "🦁";
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #764ba2;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #764ba2;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .author {
+            font-size: 1.1em;
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+
+        .section {
+            background: white;
+            margin: 40px 0;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.3);
+        }
+
+        .card h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .card p {
+            font-size: 1em;
+            text-align: left;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 60px;
+            top: 40px;
+            bottom: -40px;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-date {
+            min-width: 120px;
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        .timeline-date::after {
+            content: '';
+            position: absolute;
+            right: -45px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .iscae-section {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .iscae-section h2 {
+            color: white;
+        }
+
+        .iscae-section h2::after {
+            background: white;
+        }
+
+        .iscae-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .iscae-info h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        footer p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 5px 20px rgba(118, 75, 162, 0.4);
+            z-index: 99;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Lions Club</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#histoire">Histoire</a></li>
+                <li><a href="#activites">Activités</a></li>
+                <li><a href="#clubs">Clubs</a></li>
+                <li><a href="#iscae">ISCAE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero" id="accueil">
+        <div class="container">
+            <h1>Lions Club International</h1>
+            <p>Nous servons pour un monde meilleur</p>
+            <p class="author">Dirigé par Mohamed Trabelsi</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="section" id="histoire">
+            <h2>Histoire du Lions Club</h2>
+            <p>
+                Le Lions Club International est la plus grande organisation de clubs service au monde, fondée en 1917 à
+                Chicago, États-Unis. Avec plus de 1,4 million de membres dans plus de 200 pays, les Lions sont reconnus
+                pour leur dévouement au service communautaire et humanitaire.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1917</div>
+                    <div class="timeline-content">
+                        <h3>Fondation</h3>
+                        <p>Melvin Jones, un homme d'affaires de Chicago, fonde le Lions Club avec la vision que les
+                            clubs d'affaires devraient élargir leur horizon pour améliorer la communauté.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1925</div>
+                    <div class="timeline-content">
+                        <h3>Expansion Internationale</h3>
+                        <p>Le premier club Lions est créé au Canada, marquant le début de l'expansion internationale de
+                            l'organisation.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1945</div>
+                    <div class="timeline-content">
+                        <h3>ONU</h3>
+                        <p>Les Lions jouent un rôle crucial dans la rédaction de la Charte des Nations Unies et
+                            deviennent une organisation non gouvernementale consultative.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Aujourd'hui</div>
+                    <div class="timeline-content">
+                        <h3>Impact Global</h3>
+                        <p>Plus de 48 000 clubs actifs dans le monde entier, servant les communautés locales et
+                            répondant aux défis humanitaires mondiaux.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Notre Mission</h3>
+            <p>
+                <span class="highlight">"Donner aux personnes la possibilité de servir leur communauté, répondre aux
+                    besoins humanitaires, encourager la paix et promouvoir la compréhension internationale."</span>
+            </p>
+        </section>
+
+        <section class="section" id="activites">
+            <h2>Nos Activités Principales</h2>
+            <p>Les Lions Clubs s'engagent dans diverses causes humanitaires pour améliorer la vie des personnes dans le
+                besoin.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>👁️ Vue</h3>
+                    <p>Lutte contre la cécité, distribution de lunettes, opérations de la cataracte, et programmes de
+                        prévention de la cécité.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🍎 Faim</h3>
+                    <p>Distribution de nourriture, banques alimentaires, jardins communautaires, et programmes de
+                        nutrition.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🌍 Environnement</h3>
+                    <p>Plantations d'arbres, nettoyage de l'environnement, sensibilisation au recyclage et développement
+                        durable.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎗️ Cancer Pédiatrique</h3>
+                    <p>Soutien aux enfants atteints de cancer, financement de traitements, et accompagnement des
+                        familles.</p>
+                </div>
+
+                <div class="card">
+                    <h3>💉 Diabète</h3>
+                    <p>Dépistage, prévention, éducation et soutien aux personnes diabétiques.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎓 Éducation</h3>
+                    <p>Bourses d'études, fournitures scolaires, programmes d'alphabétisation et soutien aux jeunes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="clubs">
+            <h2>Structure des Clubs Lions</h2>
+
+            <h3>Organisation</h3>
+            <p>
+                Le Lions Club International est organisé en districts et zones. Chaque club local est autonome mais suit
+                les principes et l'éthique de l'organisation internationale. Les clubs se réunissent régulièrement pour
+                planifier et réaliser des projets de service communautaire.
+            </p>
+
+            <h3>Types de Clubs</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Lions Club Traditionnel</h3>
+                    <p>Clubs établis dans les communautés locales avec des réunions régulières.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Leo Club</h3>
+                    <p>Clubs pour les jeunes de 12 à 30 ans qui souhaitent s'engager dans le service communautaire.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Clubs Spécialisés</h3>
+                    <p>Clubs universitaires, clubs d'entreprise, clubs virtuels adaptés aux besoins spécifiques.</p>
+                </div>
+            </div>
+
+            <h3>Valeurs Fondamentales</h3>
+            <p>
+                Les Lions partagent des valeurs communes : <span class="highlight">intégrité, dévouement,
+                    responsabilité, travail d'équipe, engagement communautaire et excellence</span>. Ces valeurs guident
+                chaque action et projet entrepris par les membres.
+            </p>
+        </section>
+
+        <section class="section" id="commissions">
+            <h2>Les Commissions du Club</h2>
+            <p>
+                Pour assurer une organisation efficace et un fonctionnement optimal, chaque club Lions est structuré en
+                plusieurs commissions. Chaque commission a un rôle spécifique et contribue au succès global du club.
+            </p>
+
+            <div class="grid">
+                <div class="card commission-card">
+                    <h3>💼 Commission Sponsoring</h3>
+                    <p><strong>Rôle :</strong> Recherche et gestion des partenariats financiers</p>
+                    <p><strong>Missions :</strong></p>
+                    <ul>
+                        <li>Identifier les sponsors potentiels</li>
+                        <li>Élaborer des dossiers de sponsoring attractifs</li>
+                        <li>Négocier les partenariats</li>
+                        <li>Assurer le suivi et la fidélisation des sponsors</li>
+                        <li>Gérer les contreparties offertes aux partenaires</li>
+                    </ul>
+                </div>
+
+                <div class="card commission-card">
+                    <h3>📣 Commission Marketing</h3>
+                    <p><strong>Rôle :</strong> Promotion et visibilité du club</p>
+                    <p><strong>Missions :</strong></p>
+                    <ul>
+                        <li>Gérer les réseaux sociaux et la communication digitale</li>
+                        <li>Créer des contenus visuels et rédactionnels</li>
+                        <li>Organiser des campagnes de sensibilisation</li>
+                        <li>Développer la notoriété du club</li>
+                        <li>Assurer la couverture médiatique des événements</li>
+                    </ul>
+                </div>
+
+                <div class="card commission-card">
+                    <h3>❤️ Commission Œuvres Sociales</h3>
+                    <p><strong>Rôle :</strong> Cœur des actions humanitaires du club</p>
+                    <p><strong>Missions :</strong></p>
+                    <ul>
+                        <li>Identifier les besoins de la communauté</li>
+                        <li>Planifier et organiser les projets caritatifs</li>
+                        <li>Coordonner les collectes (nourriture, vêtements, dons)</li>
+                        <li>Gérer les partenariats avec les associations locales</li>
+                        <li>Assurer le suivi des bénéficiaires</li>
+                    </ul>
+                </div>
+
+                <div class="card commission-card">
+                    <h3>🤝 Commission Relations Internes</h3>
+                    <p><strong>Rôle :</strong> Cohésion et motivation des membres</p>
+                    <p><strong>Missions :</strong></p>
+                    <ul>
+                        <li>Organiser les réunions et activités internes</li>
+                        <li>Accueillir et intégrer les nouveaux membres</li>
+                        <li>Renforcer l'esprit d'équipe (team building)</li>
+                        <li>Gérer les formations et le développement des compétences</li>
+                        <li>Résoudre les conflits internes</li>
+                    </ul>
+                </div>
+
+                <div class="card commission-card">
+                    <h3>💰 Commission Trésorerie</h3>
+                    <p><strong>Rôle :</strong> Gestion financière du club</p>
+                    <p><strong>Missions :</strong></p>
+                    <ul>
+                        <li>Gérer le budget et les comptes du club</li>
+                        <li>Planifier les ressources financières</li>
+                        <li>Superviser les dépenses et recettes</li>
+                        <li>Préparer les rapports financiers</li>
+                        <li>Assurer la transparence financière</li>
+                    </ul>
+                </div>
+
+                <div class="card commission-card">
+                    <h3>📅 Commission Événementiel</h3>
+                    <p><strong>Rôle :</strong> Organisation des événements</p>
+                    <p><strong>Missions :</strong></p>
+                    <ul>
+                        <li>Planifier le calendrier des événements</li>
+                        <li>Coordonner la logistique (lieux, matériel)</li>
+                        <li>Gérer les inscriptions et participants</li>
+                        <li>Assurer le bon déroulement des activités</li>
+                        <li>Évaluer le succès des événements</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="commission-info">
+                <h3>🎯 Pourquoi cette organisation ?</h3>
+                <p>
+                    Cette structure en commissions permet une <span class="highlight">répartition efficace des
+                        responsabilités</span> et garantit que chaque aspect du club reçoit l'attention nécessaire.
+                    Chaque membre peut contribuer selon ses compétences et ses intérêts, créant ainsi une organisation
+                    dynamique et performante.
+                </p>
+                <p>
+                    Les commissions travaillent en <span class="highlight">synergie</span> : par exemple, le marketing
+                    promeut les événements organisés par la commission événementiel, tandis que le sponsoring finance
+                    les œuvres sociales. Cette collaboration crée un cercle vertueux au service de la communauté.
+                </p>
+            </div>
+        </section>
+
+        <section class="section iscae-section" id="iscae">
+            <h2>Lions Club ISCAE Tunisie</h2>
+            <p>Notre club universitaire au cœur de la Tunisie</p>
+
+            <div class="iscae-info">
+                <h3>🎯 Notre Vision</h3>
+                <p>
+                    Le Lions Club ISCAE est un club universitaire dynamique situé en Tunisie. Nous regroupons des
+                    étudiants et jeunes professionnels passionnés par le service communautaire et désireux de faire une
+                    différence dans notre société tunisienne.
+                </p>
+
+                <h3>📍 Localisation</h3>
+                <p>
+                    Basé à l'ISCAE (Institut Supérieur de Comptabilité et d'Administration des Entreprises), notre club
+                    est au cœur de la vie étudiante tunisienne et bénéficie d'un réseau académique et professionnel
+                    exceptionnel.
+                </p>
+
+                <h3>🏆 Notre Identité</h3>
+                <p>
+                    Fondé avec une vision claire de <span class="highlight">servir et innover</span>, le Lions Club
+                    ISCAE s'est rapidement imposé comme un acteur clé du changement social en Tunisie. Nos membres,
+                    issus de divers horizons académiques et professionnels, partagent une passion commune : avoir un
+                    impact positif mesurable dans notre communauté.
+                </p>
+
+                <h3>💡 Nos Actions Locales</h3>
+                <p>
+                    Nous organisons des campagnes de sensibilisation, des actions caritatives, des collectes de fonds,
+                    et des projets éducatifs adaptés aux besoins de la communauté tunisienne. Notre objectif est de
+                    former les leaders de demain tout en servant notre pays.
+                </p>
+                <p>
+                    <strong>Exemples de projets :</strong> Distribution de fournitures scolaires dans les régions
+                    défavorisées, organisation de journées de santé gratuites, campagnes de nettoyage environnemental,
+                    soutien aux entrepreneurs sociaux, et mentorat des jeunes étudiants.
+                </p>
+
+                <h3>📊 Notre Structure Organisationnelle</h3>
+                <p>
+                    Notre club est organisé en commissions spécialisées (Sponsoring, Marketing, Œuvres Sociales,
+                    Relations Internes, Trésorerie, Événementiel) qui travaillent en harmonie pour maximiser notre
+                    impact. Chaque membre contribue selon ses compétences et ses aspirations.
+                </p>
+
+                <h3>🎓 Formation et Développement</h3>
+                <p>
+                    Au-delà du service communautaire, nous investissons dans le <span class="highlight">développement
+                        personnel et professionnel</span> de nos membres à travers des formations en leadership, gestion
+                    de projet, communication, et fundraising. Être Lion ISCAE, c'est grandir ensemble.
+                </p>
+
+                <h3>🤝 Rejoignez-nous</h3>
+                <p>
+                    Que vous soyez étudiant à l'ISCAE ou jeune professionnel, vous pouvez contribuer à nos projets et
+                    développer vos compétences en leadership tout en servant votre communauté. Ensemble, nous pouvons
+                    créer un impact positif durable en Tunisie.
+                </p>
+
+                <h3>🌟 Nos Réalisations</h3>
+                <p>
+                    Depuis notre création, nous avons mené de nombreux projets : aide aux familles nécessiteuses,
+                    soutien scolaire, campagnes de santé, protection de l'environnement, et promotion de
+                    l'entrepreneuriat social en Tunisie.
+                </p>
+                <p>
+                    <strong>Chiffres clés :</strong> Plus de 30 projets réalisés, des centaines de bénéficiaires
+                    touchés, des dizaines de partenariats établis, et une communauté de membres engagés et passionnés.
+                </p>
+            </div>
+
+            <div class="team-gallery">
+                <h3 style="color: white; text-align: center; margin: 40px 0 30px;">👥 Notre Équipe</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="img1.jpg" alt="Membres du Lions Club ISCAE" class="team-photo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img2.jpg" alt="Activités du Lions Club ISCAE" class="team-photo">
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; font-size: 1.2em; font-weight: bold;">
+                    Ensemble, nous faisons la différence ! 🦁
+                </p>
+            </div>
+
+            <div class="iscae-info" style="margin-top: 40px;">
+                <h3>📞 Nous Contacter</h3>
+                <p>
+                    Vous souhaitez rejoindre le Lions Club ISCAE, proposer un partenariat, ou en savoir plus sur nos
+                    activités ? N'hésitez pas à nous contacter. Nous sommes toujours ouverts aux nouvelles idées et aux
+                    collaborations qui peuvent amplifier notre impact.
+                </p>
+                <p style="text-align: center; margin-top: 20px; font-size: 1.1em;">
+                    <strong>Suivez-nous sur nos réseaux sociaux pour rester informés de nos actions !</strong>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p><strong>Lions Club International - Formation</strong></p>
+            <p>Dirigé par Mohamed Trabelsi</p>
+            <p>Lions Club ISCAE, Tunisie</p>
+            <p style="margin-top: 20px; color: #764ba2; font-weight: bold;">"We Serve" - Nous Servons</p>
+        </div>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Bouton scroll to top
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation des cartes au hover
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+
+</html>
