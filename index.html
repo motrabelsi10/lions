@@ -396,6 +396,22 @@
 
         .team-card {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            /* empile le contenu verticalement */
+            align-items: center;
+            /* centre horizontalement le contenu */
+            justify-content: center;
+            /* optionnel : centre verticalement */
+        }
+
+        @media (max-width: 768px) {
+            .team-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
         }
 
 
