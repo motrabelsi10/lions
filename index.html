@@ -185,6 +185,15 @@
             padding-bottom: 15px;
         }
 
+        .subtitle {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
         .section h2::after {
             content: '';
             position: absolute;
@@ -380,6 +389,15 @@
             background-clip: text;
             font-weight: bold;
         }
+
+        .team-card p {
+            text-align: center;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
 
         .scroll-top {
             position: fixed;
@@ -610,6 +628,56 @@
         .join-btn:hover {
             background: #5563d8;
         }
+
+        #board {
+            text-align: center;
+            background: #f9f9ff;
+        }
+
+        .subtitle {
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 3rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-card h4 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .team-card p {
+            color: #667eea;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -626,11 +694,12 @@
                 <li><a href="#activites">Activités</a></li>
                 <li><a href="#clubs">Clubs</a></li>
                 <li><a href="#iscae">ISCAE</a></li>
+                <li> <a href="https://docs.google.com/forms/d/e/1FAIpQLScTC6-kq-EKoZsuRe7d2SWq65DvlWNB8b2DPuW93Or37FoDxQ/viewform?fbclid=IwY2xjawNOfB9leHRuA2FlbQIxMQBicmlkETF0cVJyYzhHNDFMRVUxRzlkAR7lqGdHyk1Q9zV62QBQV6ANRm5jyGSqbzGepJqNAwvHkL1C1e7ORsMP-3RI1g_aem_4NugCeKesAwUUmyEbGrkZA"
+                        target="_blank" class="join-btn">
+                        Rejoignez-nous
+                    </a></li>
             </ul>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScTC6-kq-EKoZsuRe7d2SWq65DvlWNB8b2DPuW93Or37FoDxQ/viewform?fbclid=IwY2xjawNOfB9leHRuA2FlbQIxMQBicmlkETF0cVJyYzhHNDFMRVUxRzlkAR7lqGdHyk1Q9zV62QBQV6ANRm5jyGSqbzGepJqNAwvHkL1C1e7ORsMP-3RI1g_aem_4NugCeKesAwUUmyEbGrkZA"
-                target="_blank" class="join-btn">
-                Rejoignez-nous
-            </a>
+
 
         </nav>
     </header>
@@ -965,6 +1034,81 @@
                 </p>
             </div>
         </section>
+        <section class="section" id="board">
+            <h2>Notre Bureau</h2>
+            <h4>Découvrez les membres du comité et du comité élargi du Lions Club ISCAE Manouba</h4>
+
+            <!-- Comité -->
+            <h3>Comité</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="img30.jpg" alt="Président Aziz Nwasri">
+                    <h4>Aziz Nwasri</h4>
+                    <p>Président</p>
+                </div>
+                <div class="team-card">
+                    <img src="img4.jpg" alt="Vice-président Khalil Hayouni">
+                    <h4>Khalil Hayouni</h4>
+                    <p>Vice-Président</p>
+                </div>
+                <div class="team-card">
+                    <img src="img70.jpg" alt="Trésorier Adam Arfaoui">
+                    <h4>Adam Arfaoui</h4>
+                    <p>Trésorier</p>
+                </div>
+                <div class="team-card">
+                    <img src="img6.jpg" alt="Chef protocole Fatma Baccouch">
+                    <h4>Fatma Baccouch</h4>
+                    <p>Chef Protocole</p>
+                </div>
+                <div class="team-card">
+                    <img src="img90.jpg" alt="Secrétaire Eya Hammami">
+                    <h4>Eya Hammami</h4>
+                    <p>Secrétaire</p>
+                </div>
+                <div class="team-card">
+                    <img src="img50.jpg" alt="Présidente sortante Sabrine Selmi">
+                    <h4>Sabrine Selmi</h4>
+                    <p>Présidente Sortante</p>
+                </div>
+            </div>
+
+            <!-- Comité Élargi -->
+            <h3>Comité Élargi</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="img7.jpg" alt="Ahlem Mzoughi">
+                    <h4>Ahlem Mzoughi</h4>
+                    <p>Chef Œuvre Sociale</p>
+                </div>
+                <div class="team-card">
+                    <img src="img99.jpg" alt="Chaima Jerbi">
+                    <h4>Chaima Jerbi</h4>
+                    <p>Chef Relation Interne</p>
+                </div>
+                <div class="team-card">
+                    <img src="img8.jpg" alt="Nour Souissi">
+                    <h4>Nour Souissi</h4>
+                    <p>Chef Effectif</p>
+                </div>
+                <div class="team-card">
+                    <img src="img100.jpg" alt="Moktada Aissa">
+                    <h4>Moktada Aissa</h4>
+                    <p>Chef Marketing</p>
+                </div>
+                <div class="team-card">
+                    <img src="img14.jpg" alt="Nourshene Ben Salem">
+                    <h4>Nourshene Ben Salem</h4>
+                    <p>Adjoint Chef Marketing</p>
+                </div>
+                <div class="team-card">
+                    <img src="img53.jpg" alt="Belhassan Amar">
+                    <h4>Belhassan Amar</h4>
+                    <p>Chef Sponsoring</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
