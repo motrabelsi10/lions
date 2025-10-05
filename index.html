@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1E3A8A 0%, #FFC72C 100%);
             min-height: 100vh;
         }
 
@@ -202,7 +202,8 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #FFC72C, #1E3A8A);
+            /* jaune vers bleu */
             border-radius: 2px;
         }
 
@@ -226,7 +227,8 @@
         }
 
         .card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1E3A8A 0%, #FFC72C 100%);
+
             padding: 25px;
             border-radius: 15px;
             color: white;
@@ -235,7 +237,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 199, 44, 0.3);
+            /* ombre jaune */
         }
 
         .card h3 {
@@ -293,6 +296,10 @@
             position: relative;
         }
 
+        .timeline-item::before {
+            background: linear-gradient(180deg, #1E3A8A, #FFC72C);
+        }
+
         .timeline-date::after {
             content: '';
             position: absolute;
@@ -300,10 +307,11 @@
             top: 5px;
             width: 16px;
             height: 16px;
-            background: #667eea;
             border-radius: 50%;
+            background: #FFC72C;
+            /* point jaune */
             border: 3px solid white;
-            box-shadow: 0 0 0 2px #667eea;
+            box-shadow: 0 0 0 2px #FFC72C;
         }
 
         .timeline-content {
@@ -318,7 +326,7 @@
         }
 
         .iscae-section {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            background: linear-gradient(135deg, #1E3A8A 0%, #FFC72C 100%);
             color: white;
             padding: 40px 25px;
             border-radius: 20px;
@@ -383,7 +391,7 @@
         }
 
         .highlight {
-            background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(120deg, #FFC72C 0%, #1E3A8A 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -499,6 +507,9 @@
             .section h2 {
                 font-size: 1.6em;
                 margin-bottom: 20px;
+                color: #1E3A8A;
+                /* bleu foncé */
+
             }
 
             .section h3 {
@@ -634,9 +645,8 @@
             display: inline-block;
             padding: 12px 30px;
             /* Taille du bouton */
-            background-color: #fcbf49;
-            /* Couleur de fond */
-            color: #fff;
+            background-color: #FFC72C;
+            color: #1E3A8A;
             /* Couleur du texte */
             font-size: 18px;
             /* Taille de la police */
@@ -652,8 +662,9 @@
         }
 
         .join-btn:hover {
-            background-color: #f77f00;
-            /* Couleur au survol */
+            background-color: #FFD700;
+            /* jaune plus lumineux */
+            color: #1E3A8A;
             transform: translateY(-2px);
             /* Légère translation */
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
@@ -710,6 +721,10 @@
             color: #667eea;
             font-weight: 500;
         }
+
+        .nav-links li a img:hover {
+            filter: brightness(0) saturate(100%) invert(66%) sepia(90%) saturate(749%) hue-rotate(1deg) brightness(101%) contrast(101%);
+        }
     </style>
 </head>
 
@@ -718,7 +733,7 @@
         <nav class="container">
             <div class="logo">
                 <img src="img3.jpg" alt="Logo Lions Club" class="logo-img">
-                Lions Club Iscae Manouba
+                <h5>Lions Club Iscae Manouba</h5>
             </div>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
@@ -726,6 +741,12 @@
                 <li><a href="#activites">Activités</a></li>
                 <li><a href="#clubs">Clubs</a></li>
                 <li><a href="#iscae">ISCAE</a></li>
+                <li>
+                    <a href="https://www.facebook.com/rotaract.club.iscae.manouba/?locale=fr_FR" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                            alt="Facebook" style="width:24px; height:24px;">
+                    </a>
+                </li>
             </ul>
 
 
