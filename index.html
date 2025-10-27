@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lions Club International - Formation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -25,6 +27,40 @@
             margin: 0 auto;
             padding: 20px;
         }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: #333;
+            /* couleur de base */
+            font-size: 24px;
+            margin-right: 15px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Couleurs spécifiques par réseau (optionnel) */
+        .social-icons a[href*="facebook"] {
+            color: #4267B2;
+        }
+
+        .social-icons a[href*="tiktok"] {
+            color: #000000;
+        }
+
+        .social-icons a[href*="instagram"] {
+            color: #C13584;
+        }
+
+        .social-icons a[href*="linkedin"] {
+            color: #0077B5;
+        }
+
 
         header {
             background: rgba(255, 255, 255, 0.95);
@@ -183,6 +219,11 @@
             text-align: center;
             position: relative;
             padding-bottom: 15px;
+        }
+
+        .section h2 {
+            text-align: center;
+            position: relative;
         }
 
         .subtitle {
@@ -390,6 +431,84 @@
             margin: 8px 0;
         }
 
+        /* Section Sponsors */
+        .sponsors-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .sponsor-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sponsor-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .sponsor-item img {
+            width: 200px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Section Notre Équipe */
+        .equipe-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .equipe-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .equipe-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .equipe-item img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Responsive pour mobile */
+        @media (max-width: 768px) {
+
+            .sponsors-grid,
+            .equipe-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .sponsor-item img {
+                width: 150px;
+            }
+
+            .equipe-item img {
+                max-width: 100%;
+            }
+        }
+
         .highlight {
             background: linear-gradient(120deg, #FFC72C 0%, #1E3A8A 100%);
             -webkit-background-clip: text;
@@ -440,6 +559,12 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
             box-shadow: 0 5px 20px rgba(118, 75, 162, 0.4);
             z-index: 99;
+        }
+
+        .section h4 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
         }
 
         .scroll-top.visible {
@@ -560,6 +685,9 @@
             .timeline-date::after {
                 display: none;
             }
+
+
+
 
             .timeline-content {
                 padding: 15px;
@@ -752,10 +880,6 @@
         <div class="container">
             <h1>Lions Club International</h1>
             <p>Nous servons pour un monde meilleur</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScTC6-kq-EKoZsuRe7d2SWq65DvlWNB8b2DPuW93Or37FoDxQ/viewform?fbclid=IwY2xjawNOfB9leHRuA2FlbQIxMQBicmlkETF0cVJyYzhHNDFMRVUxRzlkAR7lqGdHyk1Q9zV62QBQV6ANRm5jyGSqbzGepJqNAwvHkL1C1e7ORsMP-3RI1g_aem_4NugCeKesAwUUmyEbGrkZA"
-                target="_blank" class="join-btn">
-                Rejoignez-nous
-            </a>
         </div>
     </div>
 
@@ -951,18 +1075,7 @@
                     </ul>
                 </div>
 
-                <div class="card">
-                    <h3>💰 Commission Trésorerie</h3>
-                    <p><strong>Rôle :</strong> Gestion financière du club</p>
-                    <p><strong>Missions :</strong></p>
-                    <ul>
-                        <li>Gérer le budget et les comptes du club</li>
-                        <li>Planifier les ressources financières</li>
-                        <li>Superviser les dépenses et recettes</li>
-                        <li>Préparer les rapports financiers</li>
-                        <li>Assurer la transparence financière</li>
-                    </ul>
-                </div>
+
             </div>
 
             <div class="commission-info">
@@ -1139,17 +1252,86 @@
             </div>
         </section>
 
+        <!-- Section Nos Sponsors -->
+        <section class="section" id="sponsors">
+            <h2>Nos Sponsors</h2>
+            <h4>Nous remercions nos précieux partenaires pour leur soutien</h4>
+            <div class="sponsors-grid">
+                <div class="sponsor-item">
+                    <img src="mad.jpg" alt="Mad Chips">
+                </div>
+                <div class="sponsor-item">
+                    <img src="coste.jpg" alt="Coste Café">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Notre Équipe -->
+        <section class="section" id="equipe">
+            <h2>Notre Équipe</h2>
+            <h4>Découvrez les moments forts de notre club</h4>
+            <div class="equipe-grid">
+                <div class="equipe-item">
+                    <img src="img1.jpg" alt="Équipe Lions Club 1">
+                </div>
+                <div class="equipe-item">
+                    <img src="img2.jpg" alt="Équipe Lions Club 1">
+                </div>
+                <div class="equipe-item">
+                    <img src="img777.jpg" alt="Équipe Lions Club 1">
+                </div>
+                <div class="equipe-item">
+                    <img src="img7777.jpg" alt="Équipe Lions Club 1">
+                </div>
+                <div class="equipe-item">
+                    <img src="img999.jpg" alt="Équipe Lions Club 2">
+                </div>
+                <div class="equipe-item">
+                    <img src="img888.jpg" alt="Équipe Lions Club 2">
+                </div>
+                <div class="equipe-item">
+                    <img src="img9999.jpg" alt="Équipe Lions Club 2">
+                </div>
+
+            </div>
+        </section>
+
+
+
+
     </div>
 
     <footer>
-
         <div class="container">
-            <p><strong>Lions Club International - Formation</strong></p>
-            <p>Dirigé par Mohamed Trabelsi</p>
+            <p><strong>Lions Club Iscae Manouba</strong></p>
+            <p>Site créé par Mohamed Trabelsi</p>
             <p>Lions Club ISCAE, Tunisie</p>
             <p style="margin-top: 20px; color: #764ba2; font-weight: bold;">"We Serve" - Nous Servons</p>
+            <!-- Coordonnées -->
+            <div class="contact-info" style="margin-top: 15px;">
+                <p>Institut Supérieur de Comptabilité et d'Administration des Entreprises</p>
+                <p>📱 +216 58 674 600</p>
+                <p>✉️ lionsclubiscaemanouba@gmail.com</p>
+            </div>
+            <!-- Réseaux sociaux -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/rotaract.club.iscae.manouba" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.tiktok.com/@lcimfamily" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.instagram.com/lions_club_iscae_manouba/?__d=1%2F" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/lions-club-iscae-manouba" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
         </div>
     </footer>
+
+
 
     <div class="scroll-top" id="scrollTop">↑</div>
 
