@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lions Club International - Formation</title>
+    <title>Lions Club Iscae Manouba</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -478,6 +478,184 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* Styles pour la section Nos Actions */
+
+        .actions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        /* --- CARTES --- */
+        .action-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(30, 58, 138, 0.15);
+        }
+
+        /* --- HEADER --- */
+        .action-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #FFC72C 100%);
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .action-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.6em;
+        }
+
+        .action-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- CONTENU --- */
+        .action-content {
+            padding: 30px;
+        }
+
+        .action-content p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        /* --- STATISTIQUES --- */
+        .action-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(255, 199, 44, 0.05) 100%);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .action-stats span {
+            text-align: center;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .action-stats span strong {
+            display: block;
+            font-size: 1.4em;
+            color: #1E3A8A;
+            margin-bottom: 5px;
+        }
+
+        .action-gallery {
+            display: flex;
+            /* passer en flex pour centrer facilement */
+            justify-content: center;
+            /* centre horizontalement */
+            flex-wrap: wrap;
+            /* permet aux images de passer à la ligne si nécessaire */
+            gap: 10px;
+            /* espace entre les images */
+        }
+
+        .action-gallery img {
+            border-radius: 15px;
+            margin-bottom: 10px;
+            width: 90%;
+            max-width: 480px;
+            /* optionnel : limite la largeur sur grand écran */
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            cursor: pointer;
+            filter: brightness(95%);
+            display: block;
+            /* supprime tout espace en ligne */
+            /* centre chaque image individuellement */
+        }
+
+        /* Effet au survol : zoom + légère obscurité + overlay */
+        .action-gallery img:hover {
+            transform: scale(1.03);
+            filter: brightness(80%) saturate(110%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .actions-container {
+                gap: 30px;
+            }
+
+            .action-header {
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .action-header h3 {
+                font-size: 1.3em;
+            }
+
+            .action-badge {
+                align-self: flex-start;
+                font-size: 0.85em;
+                padding: 6px 15px;
+            }
+
+            .action-content {
+                padding: 20px;
+            }
+
+            .action-content p {
+                font-size: 0.95em;
+                text-align: left;
+            }
+
+            .action-stats {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .action-stats span strong {
+                font-size: 1.2em;
+            }
+
+            .action-gallery img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .action-header h3 {
+                font-size: 1.2em;
+            }
+
+            .action-gallery img {
+                height: 200px;
+            }
+        }
+
+
         .equipe-item:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -869,6 +1047,15 @@
                 <li><a href="#activites">Activités</a></li>
                 <li><a href="#clubs">Clubs</a></li>
                 <li><a href="#iscae">ISCAE</a></li>
+                <li><a href="#Bureau">Bureau</a></li>
+                <li><a href="#Sponsors">Sponsors</a></li>
+                <li><a href="#Actions">Actions</a></li>
+                <li><a href="#Equipe">Equipe</a></li>
+
+
+
+
+
             </ul>
 
 
@@ -878,8 +1065,7 @@
 
     <div class="hero" id="accueil">
         <div class="container">
-            <h1>Lions Club International</h1>
-            <p>Nous servons pour un monde meilleur</p>
+            <h1>Nous servons pour un monde meilleur</h1>
         </div>
     </div>
 
@@ -1095,13 +1281,14 @@
         </section>
 
         <section class="section iscae-section" id="iscae">
-            <h2>Lions Club ISCAE Tunisie</h2>
+            <h2>Lions Club ISCAE Manouba</h2>
             <p>Notre club universitaire au cœur de la Tunisie</p>
 
             <div class="iscae-info">
                 <h3>🎯 Notre Vision</h3>
                 <p>
-                    Le Lions Club ISCAE est un club universitaire dynamique situé en Tunisie. Nous regroupons des
+                    Le Lions Club ISCAE Manouba est un club universitaire dynamique situé en Tunisie. Nous regroupons
+                    des
                     étudiants et jeunes professionnels passionnés par le service communautaire et désireux de faire une
                     différence dans notre société tunisienne.
                 </p>
@@ -1177,7 +1364,7 @@
                 </p>
             </div>
         </section>
-        <section class="section" id="board">
+        <section class="section" id="Bureau">
             <h2>Notre Bureau</h2>
             <h4>Découvrez les membres du comité et du comité élargi du Lions Club ISCAE Manouba</h4>
 
@@ -1252,8 +1439,69 @@
             </div>
         </section>
 
+        <!-- Section Nos Actions - À insérer après la section #equipe et avant le footer -->
+        <section class="section" id="Actions">
+            <h2>Nos Actions</h2>
+            <h4>Découvrez nos projets et initiatives pour un impact positif</h4>
+
+            <div class="actions-container">
+                <!-- Action 1: Tournoi Basket -->
+                <div class="action-card">
+                    <div class="action-header">
+                        <h3>🏀 Tournoi de Basket 3 vs 3</h3>
+                        <span class="action-badge">Sport & Solidarité</span>
+                    </div>
+                    <div class="action-content">
+                        <p>Organisation d'un tournoi de basket 3 vs 3 regroupant 16 équipes passionnées. Un événement
+                            sportif convivial qui a rassemblé étudiants et jeunes talents autour des valeurs de
+                            fair-play et d'esprit d'équipe.</p>
+
+                    </div>
+                    <div class="action-gallery">
+                        <img src="image3.jpg" alt="Tournoi Basket 1">
+                    </div>
+                </div>
+
+                <!-- Action 2: Plantation d'arbres -->
+                <div class="action-card">
+                    <div class="action-header">
+                        <h3>🌳 Plantation d'Arbres à Tabarka</h3>
+                        <span class="action-badge">Environnement</span>
+                    </div>
+                    <div class="action-content">
+                        <p>Action nationale à Tabarka pour la préservation de l'environnement. Nos membres se sont
+                            mobilisés pour planter des arbres et contribuer à la reforestation de notre belle région
+                            tunisienne.</p>
+
+                    </div>
+                    <div class="action-gallery">
+                        <img src="image1.jpg" alt="Plantation Tabarka 1">
+                        <img src="image2.jpg" alt="Plantation Tabarka 2">
+                    </div>
+                </div>
+
+                <!-- Action 3: Kermesse Octobre Rose - À ajouter après l'action 2 dans .actions-container -->
+                <div class="action-card">
+                    <div class="action-header">
+                        <h3>🎗️ Kermesse Octobre Rose à l'ISCAE</h3>
+                        <span class="action-badge">Santé & Sensibilisation</span>
+                    </div>
+                    <div class="action-content">
+                        <p>Organisation d'une kermesse spéciale à l'Institut ISCAE pour sensibiliser à la lutte contre
+                            le cancer du sein dans le cadre d'Octobre Rose. Un événement festif et solidaire avec des
+                            activités, des stands de sensibilisation et une mobilisation collective pour cette noble
+                            cause.</p>
+
+                    </div>
+                    <div class="action-gallery">
+                        <img src="image4.jpg" alt="Kermesse Octobre Rose 1">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section Nos Sponsors -->
-        <section class="section" id="sponsors">
+        <section class="section" id="Sponsors">
             <h2>Nos Sponsors</h2>
             <h4>Nous remercions nos précieux partenaires pour leur soutien</h4>
             <div class="sponsors-grid">
@@ -1267,7 +1515,7 @@
         </section>
 
         <!-- Section Notre Équipe -->
-        <section class="section" id="equipe">
+        <section class="section" id="Equipe">
             <h2>Notre Équipe</h2>
             <h4>Découvrez les moments forts de notre club</h4>
             <div class="equipe-grid">
